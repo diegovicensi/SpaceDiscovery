@@ -3,7 +3,10 @@ pygame.init()
 tamanho = (1000,563) #tupla
 branco = (255,255,255)
 preto = (0,0,0)
+pygame.display.set_caption("Space Marker")
 tela = pygame.display.set_mode ( tamanho )
+gameIcon = pygame.image.load("spacee.png")
+pygame.display.set_icon(gameIcon)
 fundo = pygame.image.load("bg.jpg")
 rodando = True
 while rodando:
