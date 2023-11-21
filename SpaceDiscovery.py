@@ -8,6 +8,8 @@ pygame.display.set_caption("Space Marker")
 tela = pygame.display.set_mode ( tamanho )
 gameIcon = pygame.image.load("spacee.png")
 pygame.display.set_icon(gameIcon)
+pygame.mixer.music.load("musica.mp3")
+pygame.mixer.music.play(-1)
 fundo = pygame.image.load("bg.jpg")
 rodando = True
 while rodando:
