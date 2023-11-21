@@ -1,4 +1,5 @@
-import pygame   
+from tkinter import simpledialog
+import pygame
 pygame.init()
 tamanho = (1000,563) #tupla
 branco = (255,255,255)
@@ -10,7 +11,13 @@ while rodando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             rodando = False
-
+        elif evento.type == pygame.MOUSEBUTTONUP:
+            pos = pygame.mouse.get_pos()
+            item = simpledialog.askstring("Space", "Nome da Estrela:")
+            print(item)
+            if item == None:
+                item = "desconhecido"+str(pos)
+            estrelas[item] = pos
     tela.fill ( branco )
     tela.blit (fundo, (0,0))
     #pygame.draw.line(tela, preto, (1,1), (800,600), 2)
