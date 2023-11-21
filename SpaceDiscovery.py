@@ -5,6 +5,7 @@ tamanho = (1000,563) #tupla
 branco = (255,255,255)
 preto = (0,0,0)
 pygame.display.set_caption("Space Marker")
+fonte = pygame.font.Font("freesansbold.ttf", 20)
 tela = pygame.display.set_mode ( tamanho )
 gameIcon = pygame.image.load("spacee.png")
 pygame.display.set_icon(gameIcon)
@@ -25,6 +26,12 @@ while rodando:
             estrelas[item] = pos
     tela.fill ( branco )
     tela.blit (fundo, (0,0))
+    f10 = fonte.render("A salvar as marcações F10", True, branco)
+    f11 = fonte.render("Carregar as marcações salvas F11", True, branco)
+    f12 = fonte.render("Excluir todas as marcações F12", True, branco)
+    tela.blit(f10, (10,2))
+    tela.blit(f11, (300,2))
+    tela.blit(f12, (650,2))
     #pygame.draw.line(tela, preto, (1,1), (800,600), 2)
 
     
