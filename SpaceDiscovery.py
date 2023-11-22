@@ -5,7 +5,8 @@ tamanho = (1000,563) #tupla
 branco = (255,255,255)
 preto = (0,0,0)
 pygame.display.set_caption("Space Marker")
-fonte = pygame.font.Font("freesansbold.ttf", 20)
+fonte = pygame.font.Font("freesansbold.ttf", 19)
+fonteEstrela = pygame.font.Font("freesansbold.ttf", 12)
 tela = pygame.display.set_mode ( tamanho )
 gameIcon = pygame.image.load("spacee.png")
 pygame.display.set_icon(gameIcon)
@@ -17,6 +18,8 @@ pygame.display.update()
 rodando = True
 tela.fill ( branco )
 tela.blit (fundo, (0,0))
+primeiro = True
+
 while rodando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -25,8 +28,14 @@ while rodando:
             pos = pygame.mouse.get_pos()
             item = simpledialog.askstring("Space", "Nome da Estrela:")
             print(item)
-            estrela = fonte.render(item, True, branco)
+            estrela = fonteEstrela.render(item, True, branco)
             tela.blit(estrela, (pos))
+            if primeiro == True:
+                anterior = pos
+                primeiro = False
+            else:
+                pygame.draw.line(tela, branco, anterior, pos, 2)
+                anterior = pos
             pygame.draw.circle(tela, branco, pos, 5)
             pygame.display.update()
             if item == None:
