@@ -15,6 +15,8 @@ fundo = pygame.image.load("bg.jpg")
 estrelas ={}
 pygame.display.update()
 rodando = True
+tela.fill ( branco )
+tela.blit (fundo, (0,0))
 while rodando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
@@ -25,13 +27,12 @@ while rodando:
             print(item)
             estrela = fonte.render(item, True, branco)
             tela.blit(estrela, (pos))
-            pygame.draw.circle(tela, branco, pos, 20)
+            pygame.draw.circle(tela, branco, pos, 5)
             pygame.display.update()
             if item == None:
                 item = "desconhecido"+str(pos)
             estrelas[item] = pos
-    tela.fill ( branco )
-    tela.blit (fundo, (0,0))
+
     f10 = fonte.render("A salvar as marcações F10", True, branco)
     f11 = fonte.render("Carregar as marcações salvas F11", True, branco)
     f12 = fonte.render("Excluir todas as marcações F12", True, branco)
