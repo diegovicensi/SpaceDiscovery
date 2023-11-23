@@ -27,7 +27,9 @@ while rodando:
         elif evento.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             item = simpledialog.askstring("Space", "Nome da Estrela:")
-            print(item)
+            if item == "":
+                item = "desconhecido"
+            
             estrela = fonteEstrela.render(item, True, branco)
             tela.blit(estrela, (pos))
             if primeiro == True:
@@ -49,6 +51,8 @@ while rodando:
     tela.blit(f11, (300,2))
     tela.blit(f12, (650,2))
     #pygame.draw.line(tela, preto, (1,1), (800,600), 2)
+
+    
 
     
     pygame.display.update()
