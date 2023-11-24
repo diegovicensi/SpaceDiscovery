@@ -1,3 +1,4 @@
+#Diego Vicensi  RA: 1135533 \\// Henrique Zanfir RA: 1135519
 from tkinter import simpledialog
 import tkinter as tk
 import pygame
